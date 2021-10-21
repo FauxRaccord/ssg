@@ -4,6 +4,7 @@
 
 @import "custom.scss";
 @import "littlefoot/littlefoot.scss";
-@import "journal-list.scss";
-@import "blog-list.scss";
+@import "partials/layout/journal-list.scss";
+@import "partials/layout/blog-list.scss";
+@import "partials/layout/catlist.scss";
 @import "flexbox/main.scss";
