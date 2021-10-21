@@ -9,10 +9,10 @@
       <ol>
         {{ range .Pages }}
         <li class="posts-line row">
-      <div class="posts-author col-xs-3 col-sm-2 col-lg-1">
+      <div class="posts-author col-xs-3 col-sm-2">
         <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
       </div>
-        <div class="posts-title col-xs-9 col-sm-10 col-lg-11">
+        <div class="posts-title col-xs-9 col-sm-10">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           </div>
           </li>
@@ -30,10 +30,10 @@
       <ol>
         {{ range .Pages }}
         <li class="posts-line row">
-      <div class="posts-author col-xs-3 col-sm-2 col-lg-1">
+      <div class="posts-author col-xs-3 col-sm-2">
         <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
       </div>
-        <div class="posts-title col-xs-9 col-sm-10 col-lg-11">
+        <div class="posts-title col-xs-9 col-sm-10">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           </div>
           </li>

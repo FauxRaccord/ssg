@@ -4,13 +4,14 @@
 {{ $img := resources.Get $imgPath }}
 
 <div class="bio_wrapper row">
+  {{ if $img }}
 <div class="col-xs-12 col-sm-4">
     <span class="img">
-      {{ if $img }}
       <img class="bio_pic" src="{{ ($img.Fill "300x300 q100 Center").RelPermalink }}"/>
-      {{ end }}
   </span>
   </div>
+  {{ end }}
+  {{ if .info }}
   <div class="col-xs-12 col-sm-8">
       <div class="bio_name">
         {{ .info.Params.name }}
@@ -19,5 +20,6 @@
         {{ .info.Params.short_bio }}
        </div>
  </div>
+ {{ end }}
 </div>
 {{ end }}

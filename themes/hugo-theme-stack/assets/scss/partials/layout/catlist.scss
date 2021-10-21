@@ -1,17 +1,19 @@
 
 .catlist_wrapper{
-  margin-top: 1.2em;
+  margin-top: var(--section-separation);
   background-color: var(--card-background);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 2.5em 1em 2.5em 1em;
+  box-shadow: var(--shadow-l1);
+
     @include respond(lg){
-      padding: 2.5em 3em 2.5em 3em;
+      padding: 4em 3em 4em 3em;
   }
     .catlist_title{
-      font-size: calc(var(--article-font-size)*1.8);
+      font-size: calc(var(--article-font-size)*1.65);
       display: inline;
       font-weight: 700;
       color: var(--accent-color);
@@ -19,7 +21,7 @@
     }
 
     .catlist_title_adjust{
-      font-size: calc(var(--article-font-size)*1.35);
+      font-size: calc(var(--article-font-size)*1.17);
       color: var(--card-text-color-main);
       display: inline;
     }
@@ -28,42 +30,32 @@
       margin-top: 1.2em;
       padding-inline-start: 0px;
       @include respond(md){
-        margin-top: 2em;
+        margin-top: 3em;
         margin-right: 0em;
       }
 
       li{
           display : flex;
-        border: 2px solid var(--card-text-color-main);
-        border-left: 3px solid var(--card-text-color-main);
-        border-right: 3px solid var(--card-text-color-main);
         text-align: left;
-
-        &:first-child{
-          border-top: 3px solid var(--card-text-color-main);
         }
-
-        &:last-child{
-          border-bottom: 3px solid var(--card-text-color-main);
-        }
-
-      }
 
 
       .posts-author a{
         padding-left: 0.5em;
         font-weight: 500;
-        color: var(--accent-color);
+        background-color: rgba(var(--accent-color-exp), 0.87);
+        color: #fff;
+        padding: .03em .25em .18em;
         font-size: 0.95em;
         font-size: calc(var(--article-font-size)*1.1);
         letter-spacing: 0;
         word-spacing: 0;
-        line-height: 1.84em;
+        line-height: 2.2em;
         @include respond(sm) {
             font-size: 1.3em;
         }
         @include respond(lg) {
-            font-size: 1.43em;
+            font-size: 1.6em;
         }
       }
 
@@ -73,16 +65,22 @@
           font-size: calc(var(--article-font-size)*1.1);
           letter-spacing: 0;
           word-spacing: 0;
-          line-height: 1.84em;
+          line-height: 2.2em;
+
+          &:hover {
+              transition: 0.3s;
+              box-shadow: 0px -10px 0px rgba(var(--accent-color2-exp), var(--link-background-opacity-hover)) inset;
+          }
+
           @include respond(sm) {
               font-size: 1.3em;
           }
           @include respond(lg) {
-              font-size: 1.43em;
+              font-size: 1.6em;
           }
-
-
-
+          @include respond(xl) {
+            margin-left: -1.8em;
+          }
       }
     }
   }

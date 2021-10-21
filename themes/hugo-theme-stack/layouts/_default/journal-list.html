@@ -27,10 +27,12 @@
               <div class="anchor-box">
                 <select class="anchor-select" onchange="if(this.value) location.href=(this.value)">
                   <option></option>
+                  {{ if $pages }}
                   {{ range $pages.GroupByParam "second_taxonomy" -}}
                   {{ $info := $.Site.GetPage "journal" .Key }}
                   {{ if $info}}
                   <option class="anchor-option" value=/journal/{{ .Key }}>{{ $info.Params.title }}</option>
+                  {{ end }}
                   {{ end }}
                   {{ end }}
                 </select></div>

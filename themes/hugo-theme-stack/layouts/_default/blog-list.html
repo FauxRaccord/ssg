@@ -30,7 +30,7 @@
                   {{ $extPath := printf "%s%s" .Key ".svg" }}
                   {{ $imgPath := path.Join "icons" $extPath }}
                   {{ $img := resources.Get $imgPath }}
-                  {{ if $img }}
+                  {{ if and ($img) ($page) }}
                     {{ if $page.Params.top }}
                     <div style="background-image: url({{ $img.RelPermalink }});--positionTop:{{ $page.Params.top }}px;--positionLeft:{{ $page.Params.left }}px;"
                     content="{{ $page.Title }}" class="inner specified js-dragndrop inner-{{$.Scratch.Get "counter"}}"  onclick="mobilehref({{ .Key }})" ondblclick="desktophref({{ .Key }})">
