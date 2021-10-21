@@ -1,0 +1,27 @@
+<div class="article-details">
+    {{ if .Params.categories }}
+    <header class="article-category">
+        {{ range (.GetTerms "categories") }}
+            <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
+                {{ .LinkTitle }}
+            </a>
+        {{ end }}
+    </header>
+    {{ end }}
+
+    <h2 class="article-title">
+      {{ if  .Params.author }}
+      <a class="article-author">{{ .Params.author }}</a>
+      {{ end }}
+        <a class="article-title-sub" href="{{ .RelPermalink }}">
+            {{- .Title -}}
+        </a>
+    </h2>
+
+    {{ with .Params.description }}
+    <h3 class="article-subtitle">
+        {{ . }}
+    </h3>
+    {{ end }}
+
+</div>

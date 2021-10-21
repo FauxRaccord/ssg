@@ -1,0 +1,28 @@
+<!--
+Littlefoot  from
+https://github.com/goblindegook/littlefoot
+-->
+<script src="/js/littlefoot.js"></script>
+<script type="application/javascript">
+
+  function footnotesLittlefoot() {
+    var littlefootOptions = {
+      allowDuplicates: true,
+      activateOnHover: false,
+      dismissOnUnhover: false,
+      preventPageScroll: true,
+      buttonTemplate: `
+      <button
+        aria-label="Footnote <% number %>"
+        class="littlefoot__button"
+        id="<% reference %>"
+      />
+        <% number %>
+      </button>
+      `,
+      };
+    littlefoot.default(littlefootOptions);
+  }
+  footnotesLittlefoot();
+
+ </script>

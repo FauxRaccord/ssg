@@ -1,0 +1,23 @@
+{{if .Authorkey}}
+{{ $extPath := printf "%s%s" .Authorkey ".jpg" }}
+{{ $imgPath := path.Join "author" $extPath }}
+{{ $img := resources.Get $imgPath }}
+
+<div class="bio_wrapper row">
+<div class="col-xs-12 col-sm-4">
+    <span class="img">
+      {{ if $img }}
+      <img class="bio_pic" src="{{ ($img.Fill "300x300 q100 Center").RelPermalink }}"/>
+      {{ end }}
+  </span>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+      <div class="bio_name">
+        {{ .info.Params.name }}
+       </div>
+      <div class="bio_text">
+        {{ .info.Params.short_bio }}
+       </div>
+ </div>
+</div>
+{{ end }}

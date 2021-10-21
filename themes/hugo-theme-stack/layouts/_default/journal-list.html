@@ -1,0 +1,97 @@
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{- partial "head/head.html" . -}}
+        {{- block "head" . -}}{{ end }}
+    </head>
+    <body class="{{ block `body-class` . }}{{ end }}">
+        {{- partial "head/colorScheme" . -}}
+        <div class="container main-container flex {{ block `container-class` . }}on-phone--column {{ if .Site.Params.widgets.enabled }}extended{{ else }}compact{{ end }}{{ end }}">
+            {{- block "left-sidebar" . -}}
+                {{ partial "sidebar/left.html" . }}
+            {{- end -}}
+            <main class="main full-width">
+                {{ $pages := (where .Site.Pages "Params.Basic_taxonomy" "journal") }}
+                {{ $.Scratch.Set "counter" 0 }}
+
+                {{ range $pages.GroupByParam "second_taxonomy" -}}
+                {{ $info := $.Site.GetPage "journal" .Key }}
+                {{ if  $info }}
+                {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
+                {{ end }}
+                {{ end }}
+
+              {{ $counter := $.Scratch.Get "counter"}}
+              {{ if lt 1 $counter }}
+              <div class="anchor-wrapper">
+              <h3 class="anchor-title"> 권호별 바로가기</h3>
+              <div class="anchor-box">
+                <select class="anchor-select" onchange="if(this.value) location.href=(this.value)">
+                  <option></option>
+                  {{ range $pages.GroupByParam "second_taxonomy" -}}
+                  {{ $info := $.Site.GetPage "journal" .Key }}
+                  {{ if $info}}
+                  <option class="anchor-option" value=/journal/{{ .Key }}>{{ $info.Params.title }}</option>
+                  {{ end }}
+                  {{ end }}
+                </select></div>
+              </div>
+                {{ end }}
+
+              {{ range $pages.GroupByParam "second_taxonomy" -}}
+              {{ $info := $.Site.GetPage "journal" .Key }}
+              {{ $extPath := printf "%s%s" .Key ".jpg" }}
+              {{ $imgPath := path.Join "journal" $extPath }}
+              {{ $img := resources.Get $imgPath }}
+              {{ if  $info }}
+              <article class="journal-wrapper">
+                <div class="row center-xs">
+                <h2 id="{{ .Key }}" class="anchor-target">{{ $info.Params.title }}</h2>
+                <h2 class="issue-title">
+                  {{ $info.Params.subheading }}
+                </h2>
+                <div>
+
+                <div class="row detail-wrapper">
+                  <span class="img col-sm-5 col-xs-12">
+                <img class="journal-cover" src="{{ ($img.Fill "300x300 q100 Center").RelPermalink }}"/ loading="lazy">
+              </span>
+                <div class="journal-description col-sm-7 col-xs-12">
+                  <div class="row">
+                  <h3 class="jd-num"> {{ $info.Params.title }} </h3>
+                    <h3 class= "jd-title"> {{ $info.Params.subheading }}</h3> </div>
+                    <a class= "jd-desc"> {{ $info.Params.description }}</a>
+
+                </div>
+                </div>
+
+                <div class="issue-list">
+                  <h3 class="list-title"> 목차 </h3>
+                  <ol>
+                    {{ range .Pages }}
+                    <li class="posts-line">
+                  <div class="posts-author">
+                    <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
+                  </div>
+                    <div class="posts-title">
+                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                      </div>
+                      </li>
+                                            {{ end }}
+                      </ol>
+                      </div>
+
+                </article>
+                {{ end }}
+                {{ end }}
+
+
+
+
+
+
+            </main>
+            {{- block "right-sidebar" . -}}{{ end }}
+        </div>
+        {{ partial "footer/include.html" . }}
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<div class="catlist_wrapper">
+
+  {{- if .second_taxonomy -}}
+  {{ $info := site.GetPage .basic_taxonomy .second_taxonomy }}
+  <h1 class="catlist_title">{{  $info.Params.title  }}</h1>
+    <h2 class="catlist_title_adjust"> 더 읽기</h2>
+  <div class="catlist">
+    {{ range (where site.Pages "Params.second_taxonomy" .second_taxonomy ).GroupByDate "Monday, 2 January 2006" }}
+      <ol>
+        {{ range .Pages }}
+        <li class="posts-line row">
+      <div class="posts-author col-xs-3 col-sm-2 col-lg-1">
+        <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
+      </div>
+        <div class="posts-title col-xs-9 col-sm-10 col-lg-11">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+          </li>
+                                {{ end }}
+          </ol>
+  {{ end }}
+  </div>
+
+  {{else}}
+  {{ $info := site.GetPage .basic_taxonomy }}
+  <h1 class="catlist_title">{{  $info.Params.title  }}</h1>
+    <h2 class="catlist_title_adjust"> 더 읽기</h2>
+  <div class="catlist">
+    {{ range (where site.Pages "Params.basic_taxonomy" .basic_taxonomy ).GroupByDate "Monday, 2 January 2006" }}
+      <ol>
+        {{ range .Pages }}
+        <li class="posts-line row">
+      <div class="posts-author col-xs-3 col-sm-2 col-lg-1">
+        <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
+      </div>
+        <div class="posts-title col-xs-9 col-sm-10 col-lg-11">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+          </li>
+                                {{ end }}
+          </ol>
+  {{ end }}
+  </div>
+
+  {{ end }}
+
+</div>
