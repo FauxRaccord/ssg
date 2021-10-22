@@ -10,9 +10,15 @@
     {{ end }}
 
     <h2 class="article-title">
-      {{ if  .Params.author }}
-      <a class="article-author">{{ .Params.author }}</a>
-      {{ end }}
+      {{ $authorkey := printf "%s" .Params.authorkey }}
+      {{ $info := .Site.GetPage "Author" $authorkey }}
+            {{ if $info }}
+            <a class="article-author">{{ $info.Params.title }}</a>
+            {{ else }}
+                {{ if  .Params.author }}
+                <a class="article-author">{{ .Params.author  }}</a>
+                {{ end }}
+            {{ end }}
         <a class="article-title-sub" href="{{ .RelPermalink }}">
             {{- .Title -}}
         </a>

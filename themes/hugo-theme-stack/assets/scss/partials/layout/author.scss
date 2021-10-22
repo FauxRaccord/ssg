@@ -1,0 +1,52 @@
+
+.author-wrapper{
+  color: var(--card-text-color-main);
+  margin-left: 1em;
+
+  .author_name{
+      font-family: var(--article-font-family);
+  }
+
+  .author_bio{
+    font-family: var(--article-font-family);
+  }
+
+  .author-list{
+    margin-top: 4em;
+    margin-left: 1em;
+
+    .list-title{
+      font-family: var(--article-font-family);
+      font-weight: 600;
+      font-size: 1.5em;
+    }
+
+    ol{
+      padding-inline-start: 0px;
+
+        .posts-line{
+          margin-top: 1em;
+        }
+
+          .taxonomy{
+            text-align: center;
+          }
+
+          .taxonomy a{
+            font-weight: 500;
+            background-color: rgba(var(--accent-color-exp), 0.8);
+            color: #fff;
+            padding: 0.03em 0.25em 0.18em 0.25em;
+          }
+
+          .posts-title a{
+            color: var(--card-text-color-main);
+            font-family: var(--article-font-family);
+            font-weight: 500;
+            }
+
+      }
+
+
+}
+}

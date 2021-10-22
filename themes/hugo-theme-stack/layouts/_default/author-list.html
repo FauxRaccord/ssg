@@ -10,34 +10,31 @@
                 {{ partial "sidebar/left.html" . }}
             {{- end -}}
             <main class="main full-width">
-              <article class="blog-wrapper">
+
+              <article class="author-wrapper">
                   {{- if .Params.key -}}
-                  <h1 class="blog_title">{{  .Params.Title }}</h1>
-                  {{- if .Params.pre_description1 -}}
-                  <h2 class="pre_blog_description">{{  .Params.pre_description1 }}</h2>
+                  {{- if .Params.title -}}
+                  <h1 class="author_name">{{  .Params.title }}</h1>
                   {{ end }}
-                  {{- if .Params.description1 -}}
-                  <h2 class="blog_description">{{  .Params.description1 }}</h2>
+                  {{- if .Params.short_bio -}}
+                  <h2 class="author_bio">{{  .Params.short_bio }}</h2>
                   {{ end }}
-                  {{- if .Params.pre_description2 -}}
-                  <h2 class="pre_blog_description">{{  .Params.pre_description2 }}</h2>
-                  {{ end }}
-                  {{- if .Params.description1 -}}
-                  <h2 class="blog_description">{{  .Params.description2 }}</h2>
-                  {{ end }}
-                  {{ $page := where .Site.Pages "Params.second_taxonomy" .Params.key}}
+                  {{ $page := where .Site.Pages "Params.authorkey" .Params.key}}
                   {{ $paginator := .Paginate $page }}
                   <div class="author-list">
                     <h3 class="list-title"> 목차 </h3>
-                        <ol>
+                    <ol>
                           {{ range $paginator.Pages }}
                                 <li class="row posts-line">
-                                  <div class="posts-title ">
+                                  <div class="taxonomy col-xs-2">
+                                    {{ $dict := dict "journal" "문예지" "blog" "블로그" "commonground" "투고" }}
+                                    <a> {{ index $dict .Params.Basic_taxonomy }} </a></div>
+                                  <div class="posts-title col-xs-10">
                                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                                   </div>
                                 </li>
                               {{ end }}
-                                </ol>
+                                                            </ol>
                               {{- partial "pagination.html" . -}}
                             </div>
                           </article>

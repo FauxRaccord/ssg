@@ -64,7 +64,13 @@
                     {{ range .Pages }}
                     <li class="posts-line">
                   <div class="posts-author">
+                    {{ $authorkey := printf "%s" .Params.authorkey }}
+                    {{ $info := .Site.GetPage "Author" $authorkey }}
+                    {{ if $info }}
+                    <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ $info.Params.title}} </a>
+                    {{ else }}
                     <a href="{{ site.BaseURL }}/author/{{ .Params.authorkey }}"> {{ .Params.author}} </a>
+                    {{ end }}
                   </div>
                     <div class="posts-title">
                       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
