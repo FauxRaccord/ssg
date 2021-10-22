@@ -12,6 +12,9 @@
             <main class="main full-width">
               <article class="commonground-wrapper">
                   <h1 class="commonground-title">{{  .Params.title }}</h1>
+                  <div class="btn-wrapper">
+                  <button><a class="btn" href="/page/submission">투고 안내</a></button>
+                  </div>
                   {{ $page := where .Site.Pages "Params.Basic_taxonomy" "commonground" }}
                   {{ $paginator := .Paginate $page }}
                   <div class="commonground-list">
