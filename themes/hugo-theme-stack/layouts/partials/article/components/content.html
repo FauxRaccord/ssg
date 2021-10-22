@@ -1,3 +1,10 @@
+
+
 <section class="article-content">
+    {{ with .Params.description }}
+    <div class="article-subtitle">
+        {{ . }}
+    </div>
+    {{ end }}
     {{ .Content }}
 </section>

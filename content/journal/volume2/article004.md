@@ -6,6 +6,7 @@ author: 장동기
 authorkey: jdk001
 Basic_taxonomy: journal
 second_taxonomy: volume2
+description: "이렇게 한 문장을 드러냅니다"
 
 ---
 

@@ -85,11 +85,13 @@
 }
 
 .article-subtitle {
+    display: block;
     font-weight: normal;
+    background-color: rgba(var(--accent-color2-exp), 0.15);
     color: var(--card-text-color-secondary);
-    margin: 5px 0;
+    margin: 3em 5em 3em 5em;
+    padding: 2em 2em 2em 2em;
     line-height: 1.5;
-
     font-size: 1.75rem;
     @include respond(xl) {
         font-size: 2rem;

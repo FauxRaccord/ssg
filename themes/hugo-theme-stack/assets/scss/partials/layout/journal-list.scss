@@ -201,18 +201,24 @@
           }
 
           .posts-author
-          {
-            margin-left: 0.8em;
+          { margin-left: 0.8em;
             @include respond(md) {
             margin-left: 1.1em;
-            margin-right: 1.4em;
+            margin-right: 0.4em;
           }
-            }
+            @include respond(xl) {
+            margin-left: 1.8em;
+            margin-right: 0.8em;
+          }
+        }
 
           .posts-title{
             margin-left: 0.8em;
             @include respond(md) {
             margin-left: 1.1em;
+          }
+            @include respond(xl) {
+          margin-left: 1.8em;
           }
           }
 
@@ -227,14 +233,15 @@
             padding-left: 0.4em;
             border-left: 3px rgba(var(--accent-color-exp),0.35) solid;
             @include respond(md) {
-              font-size: 1.2em;
+              font-size: 1.023em;
               letter-spacing: 0;
               word-spacing: 0;
               padding-left: 0;
               border-left: 0;
             }
+
             @include respond(xl) {
-                font-size: 1.5em;
+                font-size: 1.45em;
             }
           }
 
@@ -242,16 +249,16 @@
               font-weight: 500;
               color: rgba(var(--card-text-color-main-exp), 0.93);
               font-size: 0.93em;
-              letter-spacing: -0.34;
+              letter-spacing: -0.44;
               word-spacing: -0.58;
               line-height: 1.84em;
               @include respond(md) {
-                font-size: 1.2em;
-                letter-spacing: 0;
-                word-spacing: 0;
+                font-size: 1.023em;
+                letter-spacing: -0.66;
+                word-spacing: -0.58;
               }
               @include respond(xl) {
-                  font-size: 1.5em;
+                  font-size: 1.45em;
               }
 
 

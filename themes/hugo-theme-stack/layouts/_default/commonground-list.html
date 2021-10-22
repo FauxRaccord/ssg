@@ -1,0 +1,84 @@
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{- partial "head/head.html" . -}}
+        {{- block "head" . -}}{{ end }}
+    </head>
+    <body class="{{ block `body-class` . }}{{ end }}">
+        {{- partial "head/colorScheme" . -}}
+        <div class="container main-container flex {{ block `container-class` . }}on-phone--column {{ if .Site.Params.widgets.enabled }}extended{{ else }}compact{{ end }}{{ end }}">
+            {{- block "left-sidebar" . -}}
+                {{ partial "sidebar/left.html" . }}
+            {{- end -}}
+            <main class="main full-width">
+              <article class="commonground-wrapper">
+                  <h1 class="commonground-title">{{  .Params.title }}</h1>
+                  {{ $page := where .Site.Pages "Params.Basic_taxonomy" "commonground" }}
+                  {{ $paginator := .Paginate $page }}
+                  <div class="commonground-list">
+                    <h3 class="list-title"> 수신함 </h3>
+                    <ol>
+                          {{ range $paginator.Pages }}
+                          <div class="list-border">
+                                <li class="row posts-line">
+                                  <div class="posts-avatar col-xs-1">
+                                    {{ if .Params.Authorkey}}
+                                      {{ $authorkey := printf "%s" .Params.authorkey }}
+                                      {{ $info := .Site.GetPage "Author" $authorkey }}
+                                      {{ $imgExt := printf "%s%s" .Params.authorkey ".jpg" }}
+                                      {{ $imgPath := path.Join "author" $imgExt }}
+                                      {{ $img := resources.Get $imgPath }}
+                                      {{ $iconExt := printf "%s%s" .Params.authorkey ".svg" }}
+                                      {{ $iconPath := path.Join "icons" "commonground" $iconExt }}
+                                      {{ $icon := resources.Get $iconPath }}
+                                        {{ if $icon }}
+                                            <span class="img">
+                                              <img class="avatar_pic" src="{{ $icon.RelPermalink }}"/>
+                                            </span>
+                                            {{ else }}
+                                            {{ if and (eq $info.Params.ImgAsIcon true) ($img) }}
+                                            <span class="img">
+                                              <img class="avatar_pic" src="{{ $img.RelPermalink }}"/>
+                                            </span>
+                                            {{ else }}
+                                            {{ if $info.Params.color }}
+                                            <a href="{{ $info.RelPermalink}}" class="personal" style="--personal_color:#{{ $info.Params.color }}">{{ substr $info.Params.title 0 1 }}</a>
+                                            {{ else }}
+                                            {{ if $info }}
+                                            <a href="{{ $info.RelPermalink}}">{{ substr $info.Params.title 0 1 }}</a>
+                                            {{ end }}
+                                            {{ end }}
+                                            {{ end }}
+                                        {{ end }}
+                                        {{ else }}
+                                        <a> {{ substr .Params.author 0 1}} </a>
+                                  {{ end }}
+
+                                  </div>
+                                  <div class="posts-author col-xs-3 col-xl-2">
+                                    {{ $authorkey := printf "%s" .Params.authorkey }}
+                                    {{ $info := .Site.GetPage "Author" $authorkey }}
+                                    {{ if $info }}
+                                    <a href="{{ $info.RelPermalink }}"> {{ $info.Params.title }} </a>
+                                    {{ else }}
+                                    <a> {{ .Params.author }} </a>
+                                    {{ end }}
+                                  </div>
+                                  <div class="posts-title col-xs-8 col-xl-9">
+                                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                  </div>
+                                  <div class="posts-description col-xs-12">
+                                    <a href="{{ .RelPermalink }}">{{ .Params.description }}</a>
+                                  </div>
+                                </li>
+                              </div>
+                              {{ end }}
+                            </ol>
+                            {{- partial "pagination.html" . -}}
+                            </div>
+                          </article>
+            </main>
+            {{- block "right-sidebar" . -}}{{ end }}
+        </div>
+        {{ partial "footer/include.html" . }}
+    </body>
+</html>
