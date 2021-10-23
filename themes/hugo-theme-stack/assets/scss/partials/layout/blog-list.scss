@@ -1,99 +1,110 @@
 
 /* blog-main */
 
+
+
 .blog-bg-wrapper{
-  background-color: #ddd1df;
-  margin-right: 0px;
-  min-height: 600px;
-
-.js-dragndrop {
-  cursor: grab;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  transition: outline 1s;
-}
-
-.outer {
-  display: flex;
-  position: relative;
-  max-width: 854px;
-  height: auto;
-  background-color: var(--body-nav-color);
-
-  @include respond(xl){
-    height:700px;
-  }
-}
-
-.inner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  min-width: 100px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  flex-basis: 33%;
-  max-width: 33%;
-  height: 12rem;
-
-  @include respond(sm){
-    position: relative;
-    flex-basis: 25%;
-    max-width: 25%;
-    height: 12rem;
-  }
-
-  &:before{
-    align-self: flex-end;
-    content: attr(content);
-    font-size: 1.48rem;
-    font-family: var(--base-font-family);
-    z-index: 1;
-    @include respond(xl){
-      font-size: 1.54rem;
+      margin-right: 0px;
+      min-height: 600px;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: var(--blog-mobile-background);
+      @include respond(xl){
+      background-image: var(--blog-background);
     }
-  }
 
-}
-
-
-@include respond(xl) {
-
-  .inner{
-    position: absolute;
-  }
-
-  @for $i from 1 through 8 {
-    .inner-#{$i}
-    {
-      top: 0;
-      left: 110*$i;
+    .background-filter{
+      min-height: 600px;
+      background-color: rgba(144, 144, 144, 0.8);
+      @include respond(xl){
+      height: 700px;
+      }
     }
-  }
 
-  @for $i from 9 through 17 {
-    .inner-#{$i}
-    {
-      top: 110;
-      left: $i*110-9*110;
+
+
+    .js-dragndrop {
+      cursor: grab;
+      -moz-user-select: none;
+      -o-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      transition: outline 1s;
     }
-  }
-    .specified
-    { top: var(--positionTop);
-      left: var(--positionLeft);
+
+    .outer {
+      display: flex;
+      position: relative;
+      max-width: 854px;
+      height: auto;
+      @include respond(xl){
+        height:700px;
+      }
     }
-}
+
+    .inner {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      min-width: 100px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      flex-basis: 33%;
+      max-width: 33%;
+      height: 12rem;
+
+      @include respond(sm){
+        position: relative;
+        flex-basis: 25%;
+        max-width: 25%;
+        height: 12rem;
+      }
+
+      &:before{
+        align-self: flex-end;
+        content: attr(content);
+        font-size: 1.48rem;
+        font-family: var(--base-font-family);
+        z-index: 1;
+          @include respond(xl){
+            font-size: 1.54rem;
+          }
+        }
+      }
 
 
+    @include respond(xl) {
 
-.draggable-title{
-  line-height: 4rem;
-  }
+      .inner{
+        position: absolute;
+      }
 
+      @for $i from 1 through 8 {
+        .inner-#{$i}
+        {
+          top: 0;
+          left: 110*$i;
+        }
+      }
+
+      @for $i from 9 through 17 {
+        .inner-#{$i}
+        {
+          top: 110;
+          left: $i*110-9*110;
+        }
+      }
+        .specified
+        { top: var(--positionTop);
+          left: var(--positionLeft);
+        }
+    }
+    .draggable-title{
+      line-height: 4rem;
+      }
 }
 
 /* blog-individual */
