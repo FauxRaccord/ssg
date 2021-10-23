@@ -97,6 +97,10 @@
       margin: calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*2) calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*2);
       padding: calc(var(--article-font-size)*2) calc(var(--article-font-size)*2) calc(var(--article-font-size)*2) calc(var(--article-font-size)*2);
     }
+    @include respond(xl){
+      margin: calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*3) calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*3);
+      padding: calc(var(--article-font-size)*2) calc(var(--article-font-size)*2) calc(var(--article-font-size)*2) calc(var(--article-font-size)*2);
+    }
 }
 
 .article-time {
