@@ -42,7 +42,7 @@ from https://codingreflections.com/hide-header-on-scroll-down/
     if ((direction === 2 && curScroll > 43) && (window.innerWidth < 768)) {
 
       //replace 43 with the height of your header in px
-      //break point에 따라 다르게 설정하세요.
+      //break point에 따라 innerWidth를 다르게 설정하세요.
 
       header.classList.add('scroll-down');
       header.classList.remove('scroll-up');

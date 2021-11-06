@@ -290,6 +290,7 @@
 
     & > p {
         margin: 1.5em 0;
+        text-indent: var(--article-text-indent);
     }
 
     h1,
@@ -314,10 +315,17 @@
 
     blockquote {
         position: relative;
+        font-size: calc(var(--article-font-size)*0.73);
+        text-indent: var(--article-font-size);
         margin: 1.5em 0;
         border-left: var(--blockquote-border-size) solid var(--card-separator-color);
-        padding: 15px calc(var(--card-padding) - var(--blockquote-border-size));
+        padding: 0 1.5em;
         background-color: var(--blockquote-background-color);
+
+        ul{
+          margin-left: -2.5em;
+          list-style-type: none;
+        }
     }
 
     hr {
@@ -417,7 +425,11 @@
     }
 
     /// Negative margins
-    blockquote,
+    blockquote{
+        margin-left: calc((var(--card-padding)) * 1.2);
+        width: 75%;
+    }
+
     figure,
     .gallery,
     pre,

@@ -87,7 +87,7 @@ const dragndrop = function( elem, strictDrag, limitByParent ) {
 		startMouseY = e.screenY;
 
     if (window.innerWidth > 1279) {
-      // innerWidth를 break point에 따라 변경  //
+      // innerWidth를 break point에 따라 변경하세요  //
 		document.addEventListener("mouseup", onMouseUp);
 		document.addEventListener("mousemove", onMouseMove);
   }

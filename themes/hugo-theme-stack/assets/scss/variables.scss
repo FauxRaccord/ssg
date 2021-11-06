@@ -31,6 +31,8 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --accent-color-exp: 240, 86, 80;
     --accent-color2: #FFCC13;
     --accent-color2-exp: 255, 204, 19;
+    --accent-color3: #bd93f9;
+    --accent-color3-exp: 189, 147, 249;
     --accent-color-darker: #2c3e50;
     --accent-color-text: #fff;
     --body-text-color: #bababa;
@@ -116,6 +118,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --article-font-family: 'Noto serif Kr';
     --article-font-size: 1.54rem;
     --article-letter-spacing: 0.08rem;
+    --article-text-indent: 1.5em;
 
     @include respond(md) {
         --article-font-size: 2.6rem;

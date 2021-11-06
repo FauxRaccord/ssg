@@ -108,3 +108,20 @@ color: #efefef;
     display: none !important;
   }
 }
+
+.accent{
+  background: rgba(var(--accent-color3-exp), 0.8);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(var(--accent-color3-exp), 0.4);
+  }
+
+  &:active {
+    background-color: rgba(var(--accent-color3-exp), 1);
+  }
+
+  &.is-active {
+    background-color: rgba(var(--accent-color3-exp), 1);
+  }
+}
