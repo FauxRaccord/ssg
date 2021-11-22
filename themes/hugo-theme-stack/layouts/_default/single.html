@@ -18,7 +18,8 @@
     {{ if .Params.Authorkey}}
     {{ $Authorkey := .Params.Authorkey  }}
     {{ $info := .Site.GetPage "Author" .Params.Authorkey }}
-    {{ partial "footer/bio" (dict "context" . "Authorkey" $Authorkey "info" $info) }}
+    {{ $short_words := .Params.short_words }}
+    {{ partial "footer/bio" (dict "context" . "Authorkey" $Authorkey "info" $info "short_words" $short_words) }}
     {{ end }}
 
     {{ if .Params.basic_taxonomy}}

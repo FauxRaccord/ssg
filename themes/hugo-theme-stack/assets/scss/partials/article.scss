@@ -87,7 +87,7 @@
 .article-subtitle {
     display: block;
     font-weight: normal;
-    background-color: rgba(var(--accent-color2-exp), 0.15);
+    background-color: rgba(var(--accent-color2-exp), var(--accent-color2-alpha));
     color: var(--card-text-color-secondary);
     margin: calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*1) calc(var(--article-font-size)*2.5) calc(var(--article-font-size)*1);
     padding: calc(var(--article-font-size)*1.2) calc(var(--article-font-size)*1.2) calc(var(--article-font-size)*1.2) calc(var(--article-font-size)*1.2);

@@ -16,7 +16,11 @@
             {{ .info.Params.title }}
            </div>
           <div class="bio_text">
-            {{ .info.Params.short_bio }}
+            {{ if .short_words }}
+              {{ .short_words }}
+            {{ else }}
+              {{ .info.Params.short_bio }}
+            {{ end }}
            </div>
      </div>
      {{ end }}
@@ -27,7 +31,11 @@
                {{ .info.Params.title }}
               </div>
              <div class="bio_text">
-               {{ .info.Params.short_bio }}
+               {{ if .short_words }}
+                 {{ .short_words }}
+               {{ else }}
+                 {{ .info.Params.short_bio }}
+               {{ end }}
               </div>
         </div>
           {{ end }}
